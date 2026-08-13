@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alnarpsmodellen - Beräkning av återanskaffningskostnad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Alnarpsmodellen</h1>
+            <p class="subtitle">Beräkning av återanskaffningskostnad för träd</p>
+        </header>
+
+        <main>
+            <form id="calculationForm">
+                <!-- Tree Measurements -->
+                <section class="form-section">
+                    <h2>Trädmått</h2>
+                    <div class="form-group">
+                        <label for="stemCircumference">Stamomkrets på 1 meters höjd (cm):</label>
+                        <input type="number" id="stemCircumference" name="stemCircumference" step="0.1" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nurseryPrice">Pris fr. plantskolan för stl. 12-14 (kr):</label>
+                        <input type="number" id="nurseryPrice" name="nurseryPrice" step="0.01" min="0" required>
+                    </div>
+                </section>
+
+                <!-- Damage and Vitality Assessment -->
+                <section class="form-section">
+                    <h2>Skador och vitalitet (0-4)</h2>
+                    <p class="help-text">Värdera varje klass på en skala från 0 till 4, där 4 är högsta positiva värde</p>
+                    
+                    <div class="assessment-grid">
+                        <div class="assessment-item">
+                            <label for="vitality">Vitalitet:</label>
+                            <div class="slider-container">
+                                <input type="range" id="vitality" name="vitality" min="0" max="4" step="1" value="4">
+                                <span class="slider-value" id="vitalityValue">4</span>
+                            </div>
+                        </div>
+                        
+                        <div class="assessment-item">
+                            <label for="rootDamage">Rot/stambasskador:</label>
+                            <div class="slider-container">
+                                <input type="range" id="rootDamage" name="rootDamage" min="0" max="4" step="1" value="4">
+                                <span class="slider-value" id="rootDamageValue">4</span>
+                            </div>
+                        </div>
+                        
+                        <div class="assessment-item">
+                            <label for="stemDamage">Stamskador:</label>
+                            <div class="slider-container">
+                                <input type="range" id="stemDamage" name="stemDamage" min="0" max="4" step="1" value="4">
+                                <span class="slider-value" id="stemDamageValue">4</span>
+                            </div>
+                        </div>
+                        
+                        <div class="assessment-item">
+                            <label for="crownDamage">Kronskador:</label>
+                            <div class="slider-container">
+                                <input type="range" id="crownDamage" name="crownDamage" min="0" max="4" step="1" value="4">
+                                <span class="slider-value" id="crownDamageValue">4</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tree Location -->
+                <section class="form-section">
+                    <h2>Trädets placering</h2>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="treeLocation" value="street" checked>
+                            Gatuträd
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="treeLocation" value="other">
+                            Träd övrig mark
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Submit Button -->
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Beräkna återanskaffningskostnad</button>
+                </div>
+            </form>
+
+            <!-- Results Section -->
+            <section id="resultsSection" class="results-section hidden">
+                <h2>Beräkningsresultat</h2>
+                <div class="results-container">
+                    <div class="result-item">
+                        <div class="result-label">Area värderat träd:</div>
+                        <div class="result-value" id="treeArea">-</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Pris per cm² för plantskoleträdet:</div>
+                        <div class="result-value" id="pricePerCm2">-</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Trädets pris:</div>
+                        <div class="result-value" id="treePrice">-</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Skador och vitalitet (summa/16):</div>
+                        <div class="result-value" id="damageFactor">-</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Etableringskostnad:</div>
+                        <div class="result-value" id="establishmentCost">-</div>
+                    </div>
+                    <div class="result-item highlight">
+                        <div class="result-label">Trädets återanskaffningskostnad:</div>
+                        <div class="result-value" id="totalCost">-</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Alnarpsmodellen - Beräkning av återanskaffningskostnad för träd</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
