@@ -19,11 +19,17 @@
                 <section class="form-section">
                     <h2>Trädmått</h2>
                     <div class="form-group">
-                        <label for="stemCircumference">Stamomkrets på 1 meters höjd (cm):</label>
+                        <label for="stemCircumference">
+                            Stamomkrets på 1 meters höjd (cm):
+                            <span class="info-icon" data-tooltip="Mät omkretsen på stammen 1 meter upp från marken. Detta är standardmåtpunkten enligt Alnarpsmodellen.">ℹ️</span>
+                        </label>
                         <input type="number" id="stemCircumference" name="stemCircumference" step="0.1" min="0" required>
                     </div>
                     <div class="form-group">
-                        <label for="nurseryPrice">Pris fr. plantskolan för stl. 12-14 (kr):</label>
+                        <label for="nurseryPrice">
+                            Pris fr. plantskolan för stl. 12-14 (kr):
+                            <span class="info-icon" data-tooltip="Anskaffningspris för ett plantskoleträd av storlek 12-14 cm stamomkrets. Detta pris används för att beräkna pris per cm².">ℹ️</span>
+                        </label>
                         <input type="number" id="nurseryPrice" name="nurseryPrice" step="0.01" min="0" required>
                     </div>
                 </section>
@@ -35,7 +41,10 @@
                     
                     <div class="assessment-grid">
                         <div class="assessment-item">
-                            <label for="vitality">Vitalitet:</label>
+                            <label for="vitality">
+                                Vitalitet:
+                                <span class="info-icon" data-tooltip="Trädets allmänna hälsotillstånd. 4 = utmärkt vitalitet, 0 = dött eller svårt skadat.">ℹ️</span>
+                            </label>
                             <div class="slider-container">
                                 <input type="range" id="vitality" name="vitality" min="0" max="4" step="1" value="4">
                                 <span class="slider-value" id="vitalityValue">4</span>
@@ -43,7 +52,10 @@
                         </div>
                         
                         <div class="assessment-item">
-                            <label for="rootDamage">Rot/stambasskador:</label>
+                            <label for="rootDamage">
+                                Rot/stambasskador:
+                                <span class="info-icon" data-tooltip="Skador på rötter eller stambas. 4 = inga skador, 0 = allvarliga skador som påverkar trädets stabilitet.">ℹ️</span>
+                            </label>
                             <div class="slider-container">
                                 <input type="range" id="rootDamage" name="rootDamage" min="0" max="4" step="1" value="4">
                                 <span class="slider-value" id="rootDamageValue">4</span>
@@ -51,7 +63,10 @@
                         </div>
                         
                         <div class="assessment-item">
-                            <label for="stemDamage">Stamskador:</label>
+                            <label for="stemDamage">
+                                Stamskador:
+                                <span class="info-icon" data-tooltip="Skador på själva stammen. 4 = inga skador, 0 = omfattande skador.">ℹ️</span>
+                            </label>
                             <div class="slider-container">
                                 <input type="range" id="stemDamage" name="stemDamage" min="0" max="4" step="1" value="4">
                                 <span class="slider-value" id="stemDamageValue">4</span>
@@ -59,7 +74,10 @@
                         </div>
                         
                         <div class="assessment-item">
-                            <label for="crownDamage">Kronskador:</label>
+                            <label for="crownDamage">
+                                Kronskador:
+                                <span class="info-icon" data-tooltip="Skador på trädets krona. 4 = ingen skada, 0 = svårt skadad eller saknad krona.">ℹ️</span>
+                            </label>
                             <div class="slider-container">
                                 <input type="range" id="crownDamage" name="crownDamage" min="0" max="4" step="1" value="4">
                                 <span class="slider-value" id="crownDamageValue">4</span>
@@ -70,7 +88,10 @@
 
                 <!-- Tree Location -->
                 <section class="form-section">
-                    <h2>Trädets placering</h2>
+                    <h2>
+                        Trädets placering
+                        <span class="info-icon" data-tooltip="Gatuträd har högre etableringskostnad (max 85,000 kr) än träd på övrig mark (max 75,000 kr).">ℹ️</span>
+                    </h2>
                     <div class="radio-group">
                         <label class="radio-label">
                             <input type="radio" name="treeLocation" value="street" checked>
