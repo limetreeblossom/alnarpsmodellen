@@ -1,6 +1,9 @@
 // Alnarpsmodellen - Beräkning av återanskaffningskostnad för träd
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Setup modal functionality
+    setupModal();
+
     // Setup slider value displays
     setupSliderValueDisplays();
 
@@ -10,6 +13,60 @@ document.addEventListener('DOMContentLoaded', function() {
         form.addEventListener('submit', handleFormSubmit);
     }
 });
+
+// Setup modal for image tooltips
+function setupModal() {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalDescription = document.getElementById('modalDescription');
+    const closeModal = document.querySelector('.close-modal');
+
+    // Get all info icons with tooltip content (images)
+    const infoIcons = document.querySelectorAll('.info-icon:has(.tooltip-content)');
+
+    // Add click event to each info icon
+    infoIcons.forEach(icon => {
+        icon.addEventListener('click', function() {
+            const tooltipContent = this.querySelector('.tooltip-content');
+            if (tooltipContent) {
+                const img = tooltipContent.querySelector('img');
+                const p = tooltipContent.querySelector('p');
+                
+                if (img) {
+                    modalImage.src = img.src;
+                    modalImage.alt = img.alt;
+                }
+                
+                if (p) {
+                    modalDescription.textContent = p.textContent;
+                }
+                
+                modal.style.display = 'block';
+            }
+        });
+    });
+
+    // Close modal when clicking X
+    if (closeModal) {
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            modal.style.display = 'none';
+        }
+    });
+}
 
 // Setup slider value displays
 function setupSliderValueDisplays() {

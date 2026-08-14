@@ -10,7 +10,7 @@
     <div class="container">
         <header>
             <h1>Alnarpsmodellen</h1>
-            <p class="subtitle">Beräkning av återanskaffningskostnad för träd</p>
+            <p class="subtitle">Beräkning av återanskaffningskostnad för träd. Källa <a href="https://www.tradforeningen.org/wp-content/uploads/2018/11/Alnarpsmodellen-2.2.pdf">här</a>.</p>
         </header>
 
         <main>
@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <label for="stemCircumference">
                             Stamomkrets på 1 meters höjd (cm):
-                            <span class="info-icon" data-tooltip="Mät omkretsen på stammen 1 meter upp från marken. Detta är standardmåtpunkten enligt Alnarpsmodellen.">ℹ️</span>
+                            <span class="info-icon" data-tooltip="Stamomfånget mäts på smalaste stället under 1 meters höjd. Stamomfång avrundat nedåt till närmsta 5-tal">ℹ️</span>
                         </label>
                         <input type="number" id="stemCircumference" name="stemCircumference" step="0.1" min="0" required>
                     </div>
@@ -43,8 +43,8 @@
                         <div class="assessment-item">
                             <label for="vitality">
                                 Vitalitet:
-                                <span class="info-icon">
-                                    ℹ️
+                                <span class="info-icon image-icon">
+                                    🔍 <span class="click-hint">Klicka för bild</span>
                                     <div class="tooltip-content">
                                         <img src="images/vitalitet.png" alt="Vitalitet exempel">
                                         <p>Trädets allmänna hälsotillstånd. 4 = utmärkt vitalitet, 0 = dött eller svårt skadat.</p>
@@ -60,8 +60,8 @@
                         <div class="assessment-item">
                             <label for="rootDamage">
                                 Rot/stambasskador:
-                                <span class="info-icon">
-                                    ℹ️
+                                <span class="info-icon image-icon">
+                                    🔍 <span class="click-hint">Klicka för bild</span>
                                     <div class="tooltip-content">
                                         <img src="images/rotskador.png" alt="Rot/stambasskador exempel">
                                         <p>Skador på rötter eller stambas. 4 = inga skador, 0 = allvarliga skador som påverkar trädets stabilitet.</p>
@@ -77,8 +77,8 @@
                         <div class="assessment-item">
                             <label for="stemDamage">
                                 Stamskador:
-                                <span class="info-icon">
-                                    ℹ️
+                                <span class="info-icon image-icon">
+                                    🔍 <span class="click-hint">Klicka för bild</span>
                                     <div class="tooltip-content">
                                         <img src="images/stamskador.png" alt="Stamskador exempel">
                                         <p>Skador på själva stammen. 4 = inga skador, 0 = omfattande skador.</p>
@@ -94,8 +94,8 @@
                         <div class="assessment-item">
                             <label for="crownDamage">
                                 Kronskador:
-                                <span class="info-icon">
-                                    ℹ️
+                                <span class="info-icon image-icon">
+                                    🔍 <span class="click-hint">Klicka för bild</span>
                                     <div class="tooltip-content">
                                         <img src="images/kronskador.png" alt="Kronskador exempel">
                                         <p>Skador på trädets krona. 4 = ingen skada, 0 = svårt skadad eller saknad krona.</p>
@@ -169,6 +169,15 @@
         <footer>
             <p>&copy; 2026 Alnarpsmodellen - Beräkning av återanskaffningskostnad för träd</p>
         </footer>
+    </div>
+
+    <!-- Modal for image tooltips -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <p id="modalDescription"></p>
+        </div>
     </div>
 
     <script src="script.js"></script>

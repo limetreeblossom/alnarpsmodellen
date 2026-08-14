@@ -91,6 +91,28 @@ label {
     user-select: none;
 }
 
+/* Image icon styling - different from text tooltips */
+.info-icon.image-icon {
+    cursor: pointer;
+    padding: 2px 6px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 4px;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.info-icon.image-icon:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.info-icon.image-icon .click-hint {
+    font-size: 0.75rem;
+    margin-left: 4px;
+    opacity: 0.9;
+}
+
 /* Text-only tooltips (using data-tooltip) */
 .info-icon[data-tooltip]::before {
     content: attr(data-tooltip);
@@ -146,7 +168,7 @@ label {
     border-radius: 5px;
     font-size: 0.85rem;
     font-weight: normal;
-    max-width: 500px;
+    max-width: 350px;
     width: max-content;
     opacity: 0;
     visibility: hidden;
@@ -156,9 +178,18 @@ label {
     line-height: 1.4;
 }
 
+/* Ensure tooltips don't go off-screen on the right */
+@media (max-width: 600px) {
+    .info-icon .tooltip-content {
+        right: auto;
+        left: 0;
+        max-width: 280px;
+    }
+}
+
 .info-icon .tooltip-content img {
     display: block;
-    max-width: 450px;
+    max-width: 300px;
     height: auto;
     border-radius: 3px;
     margin-bottom: 10px;
@@ -451,6 +482,89 @@ footer {
     }
 }
 
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: #333;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    animation: slideIn 0.3s;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: white;
+    text-decoration: none;
+}
+
+.modal-content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin: 15px 0;
+}
+
+.modal-content p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Make info icons with images clickable */
+.info-icon:has(.tooltip-content) {
+    cursor: pointer;
+}
+
+/* Hide tooltip content when using modal */
+.info-icon:has(.tooltip-content) .tooltip-content {
+    display: none;
+}
+
 /* Print styles */
 @media print {
     body {
@@ -468,5 +582,9 @@ footer {
     
     .form-section {
         break-inside: avoid;
+    }
+    
+    .modal {
+        display: none !important;
     }
 }
