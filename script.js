@@ -21,8 +21,8 @@ function setupModal() {
     const modalDescription = document.getElementById('modalDescription');
     const closeModal = document.querySelector('.close-modal');
 
-    // Get all info icons with tooltip content (images)
-    const infoIcons = document.querySelectorAll('.info-icon:has(.tooltip-content)');
+    // Get all info icons with image-icon class
+    const infoIcons = document.querySelectorAll('.info-icon.image-icon');
 
     // Add click event to each info icon
     infoIcons.forEach(icon => {

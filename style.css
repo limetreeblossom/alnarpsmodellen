@@ -556,12 +556,12 @@ footer {
 }
 
 /* Make info icons with images clickable */
-.info-icon:has(.tooltip-content) {
+.info-icon.image-icon {
     cursor: pointer;
 }
 
 /* Hide tooltip content when using modal */
-.info-icon:has(.tooltip-content) .tooltip-content {
+.info-icon.image-icon .tooltip-content {
     display: none;
 }
 
