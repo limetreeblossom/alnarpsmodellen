@@ -43,7 +43,13 @@
                         <div class="assessment-item">
                             <label for="vitality">
                                 Vitalitet:
-                                <span class="info-icon" data-tooltip="Trädets allmänna hälsotillstånd. 4 = utmärkt vitalitet, 0 = dött eller svårt skadat.">ℹ️</span>
+                                <span class="info-icon">
+                                    ℹ️
+                                    <div class="tooltip-content">
+                                        <img src="images/vitalitet.png" alt="Vitalitet exempel">
+                                        <p>Trädets allmänna hälsotillstånd. 4 = utmärkt vitalitet, 0 = dött eller svårt skadat.</p>
+                                    </div>
+                                </span>
                             </label>
                             <div class="slider-container">
                                 <input type="range" id="vitality" name="vitality" min="0" max="4" step="1" value="4">
@@ -54,7 +60,13 @@
                         <div class="assessment-item">
                             <label for="rootDamage">
                                 Rot/stambasskador:
-                                <span class="info-icon" data-tooltip="Skador på rötter eller stambas. 4 = inga skador, 0 = allvarliga skador som påverkar trädets stabilitet.">ℹ️</span>
+                                <span class="info-icon">
+                                    ℹ️
+                                    <div class="tooltip-content">
+                                        <img src="images/rotskador.png" alt="Rot/stambasskador exempel">
+                                        <p>Skador på rötter eller stambas. 4 = inga skador, 0 = allvarliga skador som påverkar trädets stabilitet.</p>
+                                    </div>
+                                </span>
                             </label>
                             <div class="slider-container">
                                 <input type="range" id="rootDamage" name="rootDamage" min="0" max="4" step="1" value="4">
@@ -65,7 +77,13 @@
                         <div class="assessment-item">
                             <label for="stemDamage">
                                 Stamskador:
-                                <span class="info-icon" data-tooltip="Skador på själva stammen. 4 = inga skador, 0 = omfattande skador.">ℹ️</span>
+                                <span class="info-icon">
+                                    ℹ️
+                                    <div class="tooltip-content">
+                                        <img src="images/stamskador.png" alt="Stamskador exempel">
+                                        <p>Skador på själva stammen. 4 = inga skador, 0 = omfattande skador.</p>
+                                    </div>
+                                </span>
                             </label>
                             <div class="slider-container">
                                 <input type="range" id="stemDamage" name="stemDamage" min="0" max="4" step="1" value="4">
@@ -76,7 +94,13 @@
                         <div class="assessment-item">
                             <label for="crownDamage">
                                 Kronskador:
-                                <span class="info-icon" data-tooltip="Skador på trädets krona. 4 = ingen skada, 0 = svårt skadad eller saknad krona.">ℹ️</span>
+                                <span class="info-icon">
+                                    ℹ️
+                                    <div class="tooltip-content">
+                                        <img src="images/kronskador.png" alt="Kronskador exempel">
+                                        <p>Skador på trädets krona. 4 = ingen skada, 0 = svårt skadad eller saknad krona.</p>
+                                    </div>
+                                </span>
                             </label>
                             <div class="slider-container">
                                 <input type="range" id="crownDamage" name="crownDamage" min="0" max="4" step="1" value="4">
